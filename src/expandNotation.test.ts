@@ -1,3 +1,4 @@
+import { NOTATION_DELIMITER } from './constants/delimiters';
 import { InvalidHandRangeNotationError } from './errors/InvalidHandRangeNotationError';
 import { expandNotation } from './expandNotation';
 
@@ -5,7 +6,7 @@ describe('expandNotation', () => {
   const validRanges = ['A2s-A5s', 'AKo', 'KsQh', 'ATs+', 'TT+', '55-22'] as const;
 
   it('handles multiple notations of varying types', () => {
-    expect(expandNotation(validRanges.join(','))).toMatchInlineSnapshot(`
+    expect(expandNotation(validRanges.join(NOTATION_DELIMITER))).toMatchInlineSnapshot(`
       [
         [
           "As",
@@ -408,16 +409,20 @@ describe('expandNotation', () => {
   });
 
   it('orders the hands by rank, then suit', () => {
-    expect(expandNotation(validRanges.join(','))).toEqual(
-      expandNotation([...validRanges].reverse().join(',')),
+    expect(expandNotation(validRanges.join(NOTATION_DELIMITER))).toEqual(
+      expandNotation([...validRanges].reverse().join(NOTATION_DELIMITER)),
     );
   });
 
   it('strips whitespace between commas', () => {
-    expect(expandNotation(validRanges.join(' , '))).toEqual(expandNotation(validRanges.join(',')));
+    expect(expandNotation(validRanges.join(` ${NOTATION_DELIMITER} `))).toEqual(
+      expandNotation(validRanges.join(NOTATION_DELIMITER)),
+    );
   });
 
   it('throws on invalid ranges', () => {
-    expect(() => expandNotation('AA-QQ,AI+')).toThrow(new InvalidHandRangeNotationError('AI+'));
+    expect(() => expandNotation(['AA-QQ', 'AI+'].join(NOTATION_DELIMITER))).toThrow(
+      new InvalidHandRangeNotationError('AI+'),
+    );
   });
 });

@@ -1,5 +1,6 @@
 import { Hand } from '@poker-apprentice/types';
 import uniq from 'lodash/uniq';
+import { NOTATION_DELIMITER } from './constants/delimiters';
 import { InvalidHandRangeNotationError } from './errors/InvalidHandRangeNotationError';
 import { expandExactHandNotation, isExactHandNotation } from './utils/expandExactHandNotation';
 import { expandPairNotation, isPairNotation } from './utils/expandPairNotation';
@@ -42,7 +43,7 @@ const expandSubNotation = (notation: string): Hand[] => {
 
 export const expandNotation = (notation: string): Hand[] => {
   const hands = notation
-    .split(',')
+    .split(NOTATION_DELIMITER)
     .map((val) => val.trim())
     .filter((val) => val !== '')
     .flatMap(expandSubNotation)

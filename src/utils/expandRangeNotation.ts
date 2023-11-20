@@ -1,4 +1,5 @@
 import { Hand } from '@poker-apprentice/types';
+import { RANGE_DELIMITER } from '~/constants/delimiters';
 import { InvalidHandRangeNotationError } from '~/errors/InvalidHandRangeNotationError';
 import { isPairNotation } from './expandPairNotation';
 import { expandPairRangeNotation } from './expandPairRangeNotation';
@@ -10,10 +11,10 @@ import { expandUnsuitednessRangeNotation } from './expandUnsuitednessRangeNotati
 export type RangeNotation = `${string}-${string}`;
 
 export const isRangeNotation = (notation: string): notation is RangeNotation =>
-  notation.split('-').length === 2;
+  notation.split(RANGE_DELIMITER).length === 2;
 
 export const expandRangeNotation = (notation: RangeNotation): Hand[] => {
-  const subNotations = notation.split('-', 2).map((str) => str.trim());
+  const subNotations = notation.split(RANGE_DELIMITER, 2).map((str) => str.trim());
 
   if (subNotations.every(isSuitednessNotation)) {
     return expandSuitednessRangeNotation(subNotations[0], subNotations[1]);

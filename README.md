@@ -69,6 +69,16 @@ const notation = notate([
   ['Ah', 'Kh'],
   ['Ad', 'Kd'],
   ['Ac', 'Kc'],
+  ['As', 'Qs'],
+  ['Ah', 'Qh'],
+  ['Ad', 'Qd'],
+  ['Ac', 'Qc'],
+  ['Js', 'Jh'],
+  ['Js', 'Jd'],
+  ['Js', 'Jc'],
+  ['Jh', 'Jd'],
+  ['Jh', 'Jc'],
+  ['Jd', 'Jc'],
   ['Ts', 'Th'],
   ['Ts', 'Td'],
   ['Ts', 'Tc'],
@@ -76,7 +86,7 @@ const notation = notate([
   ['Th', 'Tc'],
   ['Td', 'Tc'],
 ]);
-console.log(notation); // 'TT,AKs'
+console.log(notation); // 'JJ-TT,AQs+'
 ```
 
 ### `normalizeNotation`
@@ -86,4 +96,8 @@ This function converts the provided notation into a predictable/deterministic fo
 ```ts
 const notation = normalizeNotation('AKs,TT,QAo,AA'));
 console.log(notation); // 'AA,TT,AKs,AQo'
+
+const hands = expandNotation('7d2c,3h2s,KQo,AQo,AKo,ATs+,TT+,A2s-A5s');
+const notation = notate(hands);
+console.log(notation); // 'TT+,ATs+,A5s-A2s,AQo+,KQo,7d2c,3h2s'
 ```
