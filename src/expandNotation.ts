@@ -1,6 +1,6 @@
 import { Hand } from '@poker-apprentice/types';
 import uniq from 'lodash/uniq';
-import { InvalidHandRangeNotationError } from './InvalidHandRangeNotationError';
+import { InvalidHandRangeNotationError } from './errors/InvalidHandRangeNotationError';
 import { expandExactHandNotation, isExactHandNotation } from './utils/expandExactHandNotation';
 import { expandPairNotation, isPairNotation } from './utils/expandPairNotation';
 import { expandPlusNotation, isPlusNotation } from './utils/expandPlusNotation';

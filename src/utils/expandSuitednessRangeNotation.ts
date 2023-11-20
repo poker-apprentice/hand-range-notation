@@ -1,6 +1,6 @@
 import { Hand, Rank } from '@poker-apprentice/types';
-import { InvalidHandRangeNotationError } from '~/InvalidHandRangeNotationError';
 import { RANK_ORDER } from '~/constants/rankOrder';
+import { InvalidHandRangeNotationError } from '~/errors/InvalidHandRangeNotationError';
 import {
   Suitedness,
   SuitednessNotation,

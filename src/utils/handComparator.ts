@@ -1,8 +1,8 @@
-import { Card, getRank, getSuit } from '@poker-apprentice/types';
+import { Hand, getRank, getSuit } from '@poker-apprentice/types';
 import { rankComparator } from './rankComparator';
 import { suitComparator } from './suitComparator';
 
-export const handComparator = (a: Card[], b: Card[]) => {
+export const handComparator = (a: Hand, b: Hand) => {
   for (let i = 0; i < a.length; i += 1) {
     if (!b[i]) {
       return -1;

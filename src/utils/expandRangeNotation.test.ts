@@ -1,4 +1,4 @@
-import { InvalidHandRangeNotationError } from '~/InvalidHandRangeNotationError';
+import { InvalidHandRangeNotationError } from '~/errors/InvalidHandRangeNotationError';
 import { RangeNotation, expandRangeNotation } from './expandRangeNotation';
 
 describe('expandRangeNotation', () => {

@@ -1,6 +1,6 @@
 # Hand Range Notation
 
-TODO
+Convert poker hand range notation to and from actual poker hands.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Add `@poker-apprentice/hand-range-notation` as a dependency.
 
 ### `expandNotation`
 
-This function is used to parse a string representing a [hand range](https://betandbeat.com/poker/terminology/hand-range-notation/). If a hand range cannot be parsed, it will throw an `InvalidHandRangeNotationError`.
+This function is used to parse a string representing a [hand range notation](https://betandbeat.com/poker/terminology/hand-range-notation/). If a hand range notation cannot be parsed, it will throw an `InvalidHandRangeNotationError`.
 
 ```ts
 // specific suited hands
@@ -59,8 +59,31 @@ const hands = expandNotation('ATs+, 99-22, AA, KQ, KJs, AcTd');
 
 ### `notate`
 
-TODO
+This function is used to generate a [hand range notation](https://betandbeat.com/poker/terminology/hand-range-notation/) string representing a collection of hands.
+
+Only two-card Texas Hold'em hands are supported. Providing hands of any other length will result in an `InvalidHandError` being thrown.
+
+```ts
+const notation = notate([
+  ['As', 'Ks'],
+  ['Ah', 'Kh'],
+  ['Ad', 'Kd'],
+  ['Ac', 'Kc'],
+  ['Ts', 'Th'],
+  ['Ts', 'Td'],
+  ['Ts', 'Tc'],
+  ['Th', 'Td'],
+  ['Th', 'Tc'],
+  ['Td', 'Tc'],
+]);
+console.log(notation); // 'TT,AKs'
+```
 
 ### `normalizeNotation`
 
-TODO
+This function converts the provided notation into a predictable/deterministic format.
+
+```ts
+const notation = normalizeNotation('AKs,TT,QAo,AA'));
+console.log(notation); // 'AA,TT,AKs,AQo'
+```

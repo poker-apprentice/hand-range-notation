@@ -1,5 +1,5 @@
 import { Hand } from '@poker-apprentice/types';
-import { InvalidHandRangeNotationError } from '../InvalidHandRangeNotationError';
+import { InvalidHandRangeNotationError } from '~/errors/InvalidHandRangeNotationError';
 import { isPairNotation } from './expandPairNotation';
 import { expandPairRangeNotation } from './expandPairRangeNotation';
 import { isSuitednessNotation } from './expandSuitednessNotation';
