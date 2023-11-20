@@ -52,6 +52,9 @@ const hands = expandNotation('99-22');
 const hands = expandNotation('AT+');
 const hands = expandNotation('ATs+');
 const hands = expandNotation('TT+');
+
+// multiple ranges
+const hands = expandNotation('ATs+, 99-22, AA, KQ, KJs, AcTd');
 ```
 
 ### `notate`
