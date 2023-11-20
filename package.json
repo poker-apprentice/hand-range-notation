@@ -1,6 +1,6 @@
 {
   "name": "@poker-apprentice/hand-range-notation",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Convert poker hand range notation to and from poker hands",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
