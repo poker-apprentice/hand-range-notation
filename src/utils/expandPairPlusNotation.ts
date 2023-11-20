@@ -9,7 +9,7 @@ export const expandPairPlusNotation = (notation: PairNotation): Hand[] => {
 
   const hands: Hand[] = [];
 
-  for (let i = lowRankIndex; i < highRankIndex; i += 1) {
+  for (let i = lowRankIndex; i <= highRankIndex; i += 1) {
     const rank = RANK_ORDER[i] as Rank;
     const pairNotation = `${rank}${rank}`;
     if (isPairNotation(pairNotation)) {

@@ -9,6 +9,30 @@ describe('expandNotation', () => {
       [
         [
           "As",
+          "Ah",
+        ],
+        [
+          "As",
+          "Ad",
+        ],
+        [
+          "As",
+          "Ac",
+        ],
+        [
+          "Ah",
+          "Ad",
+        ],
+        [
+          "Ah",
+          "Ac",
+        ],
+        [
+          "Ad",
+          "Ac",
+        ],
+        [
+          "As",
           "Ks",
         ],
         [
